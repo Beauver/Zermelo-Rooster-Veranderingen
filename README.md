@@ -5,6 +5,8 @@ This easily shows you or your friends schedule changes inside of the terminal!
 - Exams
 - Cancelled Lessons
 - Moved Lessons
+- Subsitute Teachers
+- Activities
 
 ## Features:
 - Automatically saves zermelo user data under /ZermeloRoosterVeranderingen/{user}.json.
