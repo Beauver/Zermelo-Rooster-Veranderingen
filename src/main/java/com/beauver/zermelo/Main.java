@@ -27,22 +27,19 @@ public class Main {
         System.out.println("Go to: Zermelo --> Settings --> \"Link External Application\"");
         System.out.println("Enter your school name: ");
         String schoolName = reader.readLine();
-        System.out.println("Enter your auth code:");
+        System.out.println("Enter your Auth Code or Access Token:");
         String authCode = reader.readLine();
         long authCodeL;
+        String AccessToken;
         //checks for auth code
         try{
-            if(authCode.length() != 12){
-                System.out.println("Auth code must be 12 characters long!");
-                return;
-            }
             authCodeL = Long.parseLong(authCode);
+            AccessToken = ZermeloAPI.getAccessToken(schoolName, String.valueOf(authCodeL));
         } catch (Exception e) {
-            System.out.println("Auth code can only be numbers!");
-            return;
+            AccessToken = authCode;
         }
         //gets the access token
-        String AccessToken = ZermeloAPI.getAccessToken(schoolName, String.valueOf(authCodeL));
+        System.out.println(AccessToken);
         //enables the API
         api = ZermeloAPI.getAPI(schoolName, AccessToken);
 

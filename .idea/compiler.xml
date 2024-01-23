@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Zermelo" />
+        <module name="Zermelo-Rooster-Veranderingen" />
       </profile>
     </annotationProcessing>
   </component>
