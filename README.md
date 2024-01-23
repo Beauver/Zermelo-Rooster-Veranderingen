@@ -1,6 +1,9 @@
 # Zermelo Schedule Changes
 This easily shows you or your friends schedule changes inside of the terminal!
 
+## Requires:
+- [Java 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
+
 ## Currently Shows:
 - Exams
 - Cancelled Lessons
