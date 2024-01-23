@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class InitFunctions {
 
-    public static void manualInit() throws IOException {
+    public static void manualInit(String user) throws IOException {
         //needs a school name as a terminal input and an auth code
         System.out.println("Go to: Zermelo --> Settings --> \"Link External Application\"");
         System.out.println("Enter your school name: ");
@@ -25,16 +25,16 @@ public class InitFunctions {
         } catch (Exception e) {
             Main.accessToken = Main.authCode;
         }
-        initFile();
+        initFile(user);
     }
 
-    public static boolean autoInit(){
-        return FileFunctions.readFromJSONFile("ZermeloRoosterVeranderingen/data.json");
+    public static boolean autoInit(String user){
+        return FileFunctions.readFromJSONFile("ZermeloRoosterVeranderingen/" + user + ".json");
     }
 
 
-    private static void initFile() throws IOException {
-        FileFunctions.writeToFile("ZermeloRoosterVeranderingen/data.json", Main.schoolName, Main.accessToken);
+    private static void initFile(String user) throws IOException {
+        FileFunctions.writeToFile("ZermeloRoosterVeranderingen/" + user  +".json", Main.schoolName, Main.accessToken);
     }
 
 }

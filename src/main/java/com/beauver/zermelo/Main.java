@@ -27,11 +27,12 @@ public class Main {
 
 
     public static void main(String[] args) throws ZermeloApiException, IOException {
-
+        System.out.println("What user do you want to see their schedule of? \n(This will create a {user}.json file with their zermelo information, these files can also be shared across apps)");
+        String user = Main.reader.readLine();
         endDate.setTime(endDate.getTime() + 432000000L);
 
-        if(!InitFunctions.autoInit()){
-            InitFunctions.manualInit();
+        if(!InitFunctions.autoInit(user)){
+            InitFunctions.manualInit(user);
         }
 
         //enables the API
