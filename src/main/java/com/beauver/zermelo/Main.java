@@ -38,11 +38,15 @@ public class Main {
         //enables the API
         api = ZermeloAPI.getAPI(schoolName, accessToken);
 
-        System.out.println("Important Exams:");
+        System.out.println("Exams:");
         LessonFunctions.getExams();
         System.out.println("Cancelled lessons:");
         LessonFunctions.getCancelledLessons();
         System.out.println("Moved lessons:");
         LessonFunctions.getMovedLessons();
+        System.out.println("Substitute teacher:");
+        LessonFunctions.getSubstituteTeacher();
+        System.out.println("Activities:");
+        LessonFunctions.getActivity();
     }
 }

@@ -47,6 +47,24 @@ public class LessonFunctions {
         }
     }
 
+    public static void getSubstituteTeacher() throws ZermeloApiException {
+        List<Appointment> appointments = Main.api.getAppointments(new Date(), Main.endDate);
+        for(Appointment appointment : appointments){
+            if(appointment.isModified() && !appointment.isMoved() && !appointment.getType().equals(AppointmentType.EXAM)){
+
+                String formattedStartDate = DateFunctions.getStartDate(appointment);
+                String formattedEndDate = DateFunctions.getEndDate(appointment);
+
+                List<String> subject = appointment.getSubjects();
+                List<String> teacher = appointment.getTeachers();
+                List<String> rooms = appointment.getLocations();
+
+                //prints the date
+                System.out.println("-" + "Lesson: " + subject + " - New Teachers: " + teacher + " - " + "Room: " + rooms + " - " + "Date: " + formattedStartDate + " - " + formattedEndDate);
+            }
+        }
+    }
+
     public static void getExams() throws ZermeloApiException {
         List<Appointment> announcements = Main.api.getAppointments(new Date(), Main.endDate);
         for(Appointment announcement : announcements){
@@ -54,7 +72,6 @@ public class LessonFunctions {
 
                 String formattedStartDate = DateFunctions.getStartDate(announcement);
                 String formattedEndDate = DateFunctions.getEndDate(announcement);
-
                 List<String> subject = announcement.getSubjects();
                 List<String> rooms = announcement.getLocations();
 
@@ -62,5 +79,17 @@ public class LessonFunctions {
             }
         }
     }
+    public static void getActivity() throws ZermeloApiException {
+        List<Appointment> announcements = Main.api.getAppointments(new Date(), Main.endDate);
+        for (Appointment announcement : announcements) {
+            if (announcement.getType().equals(AppointmentType.ACTIVITY)) {
 
+                String formattedStartDate = DateFunctions.getStartDate(announcement);
+                String formattedEndDate = DateFunctions.getEndDate(announcement);
+                List<String> rooms = announcement.getLocations();
+
+                System.out.println("-" + "Activity." + " - " + "Room: " + rooms + " - " + "Date: " + formattedStartDate + " - " + formattedEndDate);
+            }
+        }
+    }
 }
