@@ -13,6 +13,7 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class Main {
 
@@ -36,6 +37,8 @@ public class Main {
         //enables the API
         api = ZermeloAPI.getAPI(schoolName, accessToken);
 
+        System.out.println("Important Exams:");
+        LessonFunctions.getExams();
         System.out.println("Cancelled lessons:");
         LessonFunctions.getCancelledLessons();
         System.out.println("Moved lessons:");

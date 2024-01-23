@@ -1,7 +1,10 @@
 package com.beauver.zermelo;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import nl.mrwouter.zermelo4j.ZermeloAPI;
 
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class InitFunctions {
@@ -22,11 +25,16 @@ public class InitFunctions {
         } catch (Exception e) {
             Main.accessToken = Main.authCode;
         }
+        initFile();
     }
 
     public static boolean autoInit(){
+        return FileFunctions.readFromJSONFile("ZermeloRoosterVeranderingen/data.json");
+    }
 
-        return false;
+
+    private static void initFile() throws IOException {
+        FileFunctions.writeToFile("ZermeloRoosterVeranderingen/data.json", Main.schoolName, Main.accessToken);
     }
 
 }
