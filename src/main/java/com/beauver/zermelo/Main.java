@@ -95,7 +95,7 @@ public class Main {
         Instant startInstant = Instant.ofEpochSecond(startDateUnixTimestamp);
         LocalDateTime startDateTime = LocalDateTime.ofInstant(startInstant, ZoneId.systemDefault());
         //format the date accordingly
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd HH:mm");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM HH:mm");
 
         return startDateTime.format(formatter);
     }
